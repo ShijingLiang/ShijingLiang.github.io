@@ -21,7 +21,6 @@ CESM work notes
 ##### a. **CCSM_BGC** 
 <table><tr><td bgcolor=lightblue>Exchange of surface upward flux of CO2 among atm, lnd, ocn</td></tr></table>
 
->~~~
 ><group id="run_coupling">
     <entry id="CCSM_BGC" value="CO2C">
     <type>char</type>
@@ -42,7 +41,6 @@ CESM work notes
 <table><tr><td bgcolor=lightblue>Mechanism for setting the CO2 value in ppmv for CLM if CLM_CO2_TYPE is <font color="red">constant</font>; or for POP if OCN_CO2_TYPE is <font color="red">constant</font></td></tr></table>  
 
 
->~~~
 ><group id="run_co2">
     <entry id="CCSM_CO2_PPMV" value="284.7">
     <type>real</type>
@@ -53,7 +51,6 @@ CESM work notes
 ##### c. **CLM_CO2_TYPE**
 <table><tr><td bgcolor=gold>Note: <font color="red">DO NOT</font> change in env_xml.</td></tr></table>
 
->~~~
 ><group id="run_component_clm">
     <entry id="CLM_CO2_TYPE" value="diagnostic">
     <type>char</type>
@@ -68,7 +65,6 @@ CESM work notes
 ##### d. **OCN_CO2_TYPE**
 <table><tr><td bgcolor=gold>Note: <font color="red">DO NOT</font> change in env_xml.</td></tr></table>
 
->~~~
 ><group id="run_component_pop">
     <entry id="OCN_CO2_TYPE" value="diagnostic">
     <type>char</type>
@@ -232,6 +228,3 @@ gas surface values are interpolated between the annual average values read from 
 interpolation.
 >- For example, if rampyear_ghg = 1950, then the GHG surface values will be the result of interpolating between the values for 1950 and 1951 from the dataset.
 >- Default: 0
-
-
-
