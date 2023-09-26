@@ -7,8 +7,8 @@ CESM work notes
 
 ## How to change CO2 in fully-coupled CESM2
 ### <center>Table of contents</center>
-### <center>[1. Basic Variables](#1.-Basic-Variables)</center>
-### <center>[2. Case studies]</center>
+### <center>1. Basic Variables</center>
+### <center>2. Case studies</center>
 [//]:# (B1850 case)
 [//]:# (B1PCT case)
 [//]:# (BCO2x4 case)
