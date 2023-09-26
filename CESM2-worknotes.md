@@ -26,12 +26,15 @@ CESM work notes
     <type>char</type>
     <valid_values>none,CO2A,CO2B,CO2C</valid_values>
     </entry>  
+
 - CO2A:
     - sets the driver namelist variable flds_co2a = .true.
     - **prognostic/diagnostic** CO2 at the lowest model level to be sent from the atmosphere to the land and ocean.  
+
 - CO2B:
     - flds_co2b = .true.
-    - **prognostic/diagnostic** CO2 at the lowest model level to be sent from the atmosphere just to the land, and the **surface upward flux of CO2** to be sent from the land back to the atmosphere  
+    - **prognostic/diagnostic** CO2 at the lowest model level to be sent from the atmosphere just to the land, and the **surface upward flux of CO2** to be sent from the land back to the atmosphere 
+
 - CO2C:
     - flds_co2c = .true.
     - **prognostic/diagnostic** CO2 at the lowest model level to be sent from the atmosphere to the land and ocean, and the **surface upward flux of CO2** to be sent from the land and the open ocean back to the atmosphere.
@@ -78,6 +81,7 @@ CESM work notes
 
 ##### **Catogories: CO2_cycle**
 ##### co2_flag  
+
 |Entry type|Valid values|
 |---       |---         |
 |logical   |.true. <br>.false.</br>|
@@ -85,39 +89,49 @@ CESM work notes
 >- Default: set by build-namelist
 
 ##### co2_cycle_rad_passive  
+
 |Entry type|Valid values|
 |---       |---         |
 |logical   |.true. <br>.false.</br>|
+
 >- Flag to set rad_climate variable so that the **prognostic CO2** controlled by the co2_cycle module is **radiatively passive**.
 >- Defalt: **FALSE**
 
 ##### co2_readflux_fuel & co2flux_fuel_file
+
 |Entry type|Valid values|
 |---       |---         |
 |logical   |.true. <br>.false.</br>|
+
 >- If TRUE read co2 fuel flux from file. File path specificed in co2flux_fuel_file  
 >- (e.g.) atm/cam/ggas/emissions-cmip6_CO2_anthro_surface_175001-201512_fv_1.9x2.5_c20181011.nc
 >- Default: set by build-namelist
 
 ##### co2_readflux_aircraft & aircraft_co2_file
+
 |Entry type|Valid values|
 |---       |---         |
 |logical   |.true. <br>.false.</br>|
+
 >- If TRUE read co2 aircraft flux from file. File path specificed in aircraft_co2_file.  
 >- (e.g.) atm/cam/ggas/emissions-cmip6_CO2_anthro_ac_175001-201512_fv_0.9x1.25_c20181011.nc
 
 ##### co2_read_flux_ocn & co2flux_ocn_file
+
 |Entry type|Valid values|
 |---       |---         |
 |logical   |.true. <br>.false.</br>|
+
 >- If TRUE read co2 ocn flux from file. File path specificed in co2flux_ocn_file.  
 >- Default: **FALSE**
 
 ##### **Catogories: ghg_cam**
 ##### nlte_limit_co2
+
 |Entry type|Valid values|
 |---       |---         |
 |logical   |.true. <br>.false.</br>|
+
 >- If TRUE apply upper limit to CO2 concentrations passed to the Formichev non-LTE cooling calculation
 (code not intended for values greater than 720 ppmv).
 >>Running with flag set to TRUE could lead to
@@ -135,6 +149,7 @@ Default: FALSE
 |Entry type|Valid values|
 |---       |---         |
 |char*16   |'FIXED'<br>'RAMPED'<br>'RAMP_CO2_ONLY'<br>'CHEM_LBC_FILE'|
+
 >- **FIXED**: fixed mixing ratios and have default or namelist input values  
 >- **RAMPED**: volumn mixing ratios are time interpolated from [bndtvghg](#bndtcghg)
 >- **RAMP_CO2_ONLY**: only CO2 mixing ratios are ramped at a rate determined by  [ramp_co2_annual_rate](#ramp_co2_annual_rate), [ramp_co2_cap](#ramp_co2_cap), [ramp_co2_start_ymd](#ramp_co2_start_ymd)
@@ -143,67 +158,83 @@ Default: FALSE
 
 **FIXED**
 ##### (1) co2vmr
+
 |Entry type|Possible default values|
 |---       |---         |
 |real      |367.0e-6    |
+
 >- CO2 volume mixing ratio. This is used as the [***time invariant surface value***](#b.-CCSM_CO2_PPMV) of CO2 if no time varying values are specified.  
 >- Default: set by build-namelist
 >- [scenario_ghg='FIXED'](#Catogories:-ghg_cam)
 
 **RAMPED_CO2_ONLY**
 ##### (2) ramp_co2_annual_rate
+
 |Entry type|Valid values|
 |---       |---         |
 |real      |any real    |
+
 >- Amount of co2 ramping per year (percent).
 >- Only used if scenario_ghg = 'RAMP_CO2_ONLY'  
 >- Default: 1.0
 
 ##### (3) ramp_co2_cap
+
 |Entry type|Valid values|
 |---       |---         |
 |real      |any real    |
+
 >- CO2 cap if > 0, floor otherwise. Specified as multiple or fraction of inital value
 >- e.g., Setting to 4.0 will cap at 4x initial CO2 setting.
 >- Only used if scenario_ghg = 'RAMP_CO2_ONLY'  
 >- Default: boundless if ramp_co2_annual_rate > 0, zero otherwise.
 
 ##### (4) ramp_co2_start_ymd
+
 |Entry type|Valid values|
 |---       |---         |
 |integer   |any integer |
+
 >- Date on which ramping of CO2 begins. The date is encoded as an integer in the form YYYYMMDD.
 >- Only used if scenario_ghg = 'RAMP_CO2_ONLY'
 >- Default: 0
 
 **CHEM_LBC_FILE**
 ##### (5) flbc_file
+
 |Entry type|Valid values|
 |---       |---         |
 |char*256  |any char    |
+
 - Full pathname of dataset for fixed lower boundary conditions.
 - (e.g.) atm/waccm/lb/LBC_1765-2100_1.9x2.5_CCMI_RCP60_za_RNOCStrend_c141002.nc
 - Default: set by build-namelist.
 
 ##### (6) flbc_type
+
 |Entry type|Valid values|
 |---       |---         |
 |char*8    |'CYCLICAL'<br>'SERIAL'<br>'FIXED'|
+
 >- Type of time interpolation for fixed lower boundary data.
 >- Default: 'CYCLICAL'
 
 ##### (7) flbc_cycle_yr
+
 |Entry type|Valid values|
 |---       |---         |
 |integer   |any integer |
+
 >- The cycle year of the fixed lower boundary data if flbc_type is 'CYCLICAL'.
 >- Format: YYYY
 >- Default: 0
 
 ##### (8) flbc_fixed_ymd
+
 |Entry type|Valid values|
 |---       |---         |
 |integer   |any integer |
+
 >- The date at which the fixed lower boundary data is fixed
 >if flbc_type is 'FIXED'.
 >- Format: YYYYMMDD
@@ -211,17 +242,21 @@ Default: FALSE
 
 **RAMPED**
 ##### (9) bndtcghg
+
 |Entry type|Valid values|
 |---       |---         |
 |char*256  |any char    |
+
 >- Full pathname of time-variant boundary dataset for greenhouse gas surface values.
 >- Default: set by build-namelist.
 >- (e.g.) atm/cam/ggas/ghg_hist_1765-2005_c091218.nc
 
 ##### (10) rampyear_ghg
+
 |Entry type|Valid values|
 |---       |---         |
 |integer   |any integer |
+
 >- If scenario_ghg is set to "RAMPED" then the greenhouse
 gas surface values are interpolated between the annual average values read from the file specified by [bndtvghg](#-bndtcghg)
 >- In that case, the value of this variable (> 0) fixes the year of the lower bounding value (i.e., the value for calendar day 1.0) used in the
