@@ -22,7 +22,7 @@ CESM work notes
 <table><tr><td bgcolor=lightblue>Exchange of surface upward flux of CO2 among atm, lnd, ocn</td></tr></table>
 
 >~~~
-<group id="run_coupling">
+><group id="run_coupling">
     <entry id="CCSM_BGC" value="CO2C">
     <type>char</type>
     <valid_values>none,CO2A,CO2B,CO2C</valid_values>
