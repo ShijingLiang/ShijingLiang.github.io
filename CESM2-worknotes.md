@@ -15,21 +15,17 @@ CESM work notes
 [//]:# (BHIST_BDRD case)
 [//]:# (BHIST_BPRP case)
 
-### 1. Basic Variables
+## 1. Basic Variables
 ------------
 Understand basic variables specified in env_run.xml and user_nl_clm namelists. Users are suggested to change variables ONLY in user_nl_clm.
 
-### (1) Variables in env_run.xml
+## (1) Variables in env_run.xml
 Variables in env_run.xml are related to the compset and changing them directly alter the case build process.
 
 ### a. **CCSM_BGC** 
 <table><tr><td bgcolor=lightblue>Exchange of surface upward flux of CO2 among atm, lnd, ocn</td></tr></table>
 
-><group id="run_coupling">
-    <entry id="CCSM_BGC" value="CO2C">
-    <type>char</type>
-    <valid_values>none,CO2A,CO2B,CO2C</valid_values>
-    </entry>  
+>valid_values: none,CO2A,CO2B,CO2C
 
 - CO2A:
     - sets the driver namelist variable flds_co2a = .true.
@@ -47,22 +43,12 @@ Variables in env_run.xml are related to the compset and changing them directly a
 <table><tr><td bgcolor=gold>Note: <font color="red">DO NOT</font> change in env_xml.</td></tr></table>
 <table><tr><td bgcolor=lightblue>Mechanism for setting the CO2 value in ppmv for CLM if CLM_CO2_TYPE is <font color="red">constant</font>; or for POP if OCN_CO2_TYPE is <font color="red">constant</font></td></tr></table>  
 
-
-><group id="run_co2">
-    <entry id="CCSM_CO2_PPMV" value="284.7">
-    <type>real</type>
-    <valid_values/>
-    </entry>
-</group>
+>entry id="CCSM_CO2_PPMV" value="284.7"
 
 ### c. **CLM_CO2_TYPE**
 <table><tr><td bgcolor=gold>Note: <font color="red">DO NOT</font> change in env_xml.</td></tr></table>
 
-><group id="run_component_clm">
-    <entry id="CLM_CO2_TYPE" value="diagnostic">
-    <type>char</type>
-    <valid_values>constant,diagnostic,prognostic</valid_values>
-    </entry>
+>valid_values:constant, diagnostic, prognostic
 
 - Determines how CLM will determine where CO2 is set.
     - If value is [**constant**, it will be set to **CCSM_CO2_PPMV**](#b.-CCSM_CO2_PPMV)
@@ -72,15 +58,9 @@ Variables in env_run.xml are related to the compset and changing them directly a
 ### d. **OCN_CO2_TYPE**
 <table><tr><td bgcolor=gold>Note: <font color="red">DO NOT</font> change in env_xml.</td></tr></table>
 
-><group id="run_component_pop">
-    <entry id="OCN_CO2_TYPE" value="diagnostic">
-    <type>char</type>
-    <valid_values>constant,prognostic,diagnostic,box_atm_co2</valid_values>
-- Determines provenance of atmospheric CO2 for gas flux computation.
-- This option is used in the POP ecosystem model.
-- The default is constant.
+>valid_values: constant, prognostic, diagnostic, box_atm_co2
     
-### (2) Variables specified in user_nl_cam
+## (2) Variables specified in user_nl_cam
 Users are suggest to make modifications in user_nl_cam. For the more details, please refer to:
 [CAM6.3 Namelist Definitions](#https://docs.cesm.ucar.edu/models/cesm2/settings/current/cam_nml.html)
 
