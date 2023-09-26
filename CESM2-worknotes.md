@@ -42,7 +42,7 @@ CESM work notes
 <table><tr><td bgcolor=lightblue>Mechanism for setting the CO2 value in ppmv for CLM if CLM_CO2_TYPE is <font color="red">constant</font>; or for POP if OCN_CO2_TYPE is <font color="red">constant</font></td></tr></table>  
 
 
->~~~test
+>~~~
 ><group id="run_co2">
     <entry id="CCSM_CO2_PPMV" value="284.7">
     <type>real</type>
