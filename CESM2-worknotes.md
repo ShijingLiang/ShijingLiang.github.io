@@ -17,8 +17,12 @@ CESM work notes
 
 ### 1. Basic Variables
 ------------
-#### (1) Variables in env_run.xml
-##### a. **CCSM_BGC** 
+Understand basic variables specified in env_run.xml and user_nl_clm namelists. Users are suggested to change variables ONLY in user_nl_clm.
+
+### (1) Variables in env_run.xml
+Variables in env_run.xml are related to the compset and changing them directly alter the case build process.
+
+### a. **CCSM_BGC** 
 <table><tr><td bgcolor=lightblue>Exchange of surface upward flux of CO2 among atm, lnd, ocn</td></tr></table>
 
 ><group id="run_coupling">
@@ -39,7 +43,7 @@ CESM work notes
     - flds_co2c = .true.
     - **prognostic/diagnostic** CO2 at the lowest model level to be sent from the atmosphere to the land and ocean, and the **surface upward flux of CO2** to be sent from the land and the open ocean back to the atmosphere.
 
-##### b. **CCSM_CO2_PPMV** 
+### b. **CCSM_CO2_PPMV** 
 <table><tr><td bgcolor=gold>Note: <font color="red">DO NOT</font> change in env_xml.</td></tr></table>
 <table><tr><td bgcolor=lightblue>Mechanism for setting the CO2 value in ppmv for CLM if CLM_CO2_TYPE is <font color="red">constant</font>; or for POP if OCN_CO2_TYPE is <font color="red">constant</font></td></tr></table>  
 
@@ -51,7 +55,7 @@ CESM work notes
     </entry>
 </group>
 
-##### c. **CLM_CO2_TYPE**
+### c. **CLM_CO2_TYPE**
 <table><tr><td bgcolor=gold>Note: <font color="red">DO NOT</font> change in env_xml.</td></tr></table>
 
 ><group id="run_component_clm">
@@ -65,7 +69,7 @@ CESM work notes
     - If value is either **diagnostic/prognostic**, the atmosphere model MUST send it to CLM.
     - CLM_CO2_TYPE is **normally set by the specific compset**, since it HAS to be coordinated with settings for the atmospheric model.
 
-##### d. **OCN_CO2_TYPE**
+### d. **OCN_CO2_TYPE**
 <table><tr><td bgcolor=gold>Note: <font color="red">DO NOT</font> change in env_xml.</td></tr></table>
 
 ><group id="run_component_pop">
@@ -76,11 +80,14 @@ CESM work notes
 - This option is used in the POP ecosystem model.
 - The default is constant.
     
-#### (2) Variables specified in user_nl_cam
+### (2) Variables specified in user_nl_cam
+Users are suggest to make modifications in user_nl_cam. For the more details, please refer to:
 [CAM6.3 Namelist Definitions](#https://docs.cesm.ucar.edu/models/cesm2/settings/current/cam_nml.html)
 
-##### **Catogories: CO2_cycle**
-##### co2_flag  
+### **Catogories: CO2_cycle**
+Variables under the catogory CO2_cycle, related to whether surface emissions of anthropogenic CO2 will be passed to the atmosphere.
+
+### a. co2_flag  
 
 |Entry type|Valid values|
 |---       |---         |
@@ -88,7 +95,7 @@ CESM work notes
 >- If TRUE turn on CO2 code.
 >- Default: set by build-namelist
 
-##### co2_cycle_rad_passive  
+### b. co2_cycle_rad_passive  
 
 |Entry type|Valid values|
 |---       |---         |
@@ -97,7 +104,7 @@ CESM work notes
 >- Flag to set rad_climate variable so that the **prognostic CO2** controlled by the co2_cycle module is **radiatively passive**.
 >- Defalt: **FALSE**
 
-##### co2_readflux_fuel & co2flux_fuel_file
+### c. co2_readflux_fuel & co2flux_fuel_file
 
 |Entry type|Valid values|
 |---       |---         |
@@ -107,7 +114,7 @@ CESM work notes
 >- (e.g.) atm/cam/ggas/emissions-cmip6_CO2_anthro_surface_175001-201512_fv_1.9x2.5_c20181011.nc
 >- Default: set by build-namelist
 
-##### co2_readflux_aircraft & aircraft_co2_file
+### d. co2_readflux_aircraft & aircraft_co2_file
 
 |Entry type|Valid values|
 |---       |---         |
@@ -116,7 +123,7 @@ CESM work notes
 >- If TRUE read co2 aircraft flux from file. File path specificed in aircraft_co2_file.  
 >- (e.g.) atm/cam/ggas/emissions-cmip6_CO2_anthro_ac_175001-201512_fv_0.9x1.25_c20181011.nc
 
-##### co2_read_flux_ocn & co2flux_ocn_file
+### e. co2_read_flux_ocn & co2flux_ocn_file
 
 |Entry type|Valid values|
 |---       |---         |
@@ -125,14 +132,16 @@ CESM work notes
 >- If TRUE read co2 ocn flux from file. File path specificed in co2flux_ocn_file.  
 >- Default: **FALSE**
 
-##### **Catogories: ghg_cam**
-##### nlte_limit_co2
+### **Catogories: ghg_cam**
+Variables under ghg_cam associate with how CO2 concentration will change in the atmosphere. If you are going to change CO2 concentration, modifications are expected here.
+
+### a. nlte_limit_co2
 
 |Entry type|Valid values|
 |---       |---         |
 |logical   |.true. <br>.false.</br>|
 
->- If TRUE apply upper limit to CO2 concentrations passed to the Formichev non-LTE cooling calculation
+>- If TRUE apply **upper limit to CO2 concentrations** passed to the Formichev non-LTE cooling calculation
 (code not intended for values greater than 720 ppmv).
 >>Running with flag set to TRUE could lead to
 incorrect cooling rates if model CO2 exceeds 720 ppmv.
@@ -141,7 +150,7 @@ exceed this value at altitudes above 1 mbar.
 >>The 720 ppmv CO2 limiter in the Formichev non-LTE cooling scheme is applied to all vertical levels regardless of this setting.
 Default: FALSE
 
-##### scenario_ghg
+### b. scenario_ghg
 <table><tr><td bgcolor=palegoldenrod>Controls <font color='orangered'>PRESRIBED</font> CO2, CH4, N2O, CFC11, CFC12 volumn mixing ratios.</td></tr></table>
 
 ![test](./pics/scenario_ghg.png)
@@ -157,7 +166,9 @@ Default: FALSE
 >- Default: set by build-namelist
 
 **FIXED**
-##### (1) co2vmr
+When atmosphere CO2 concentration is a fixed value:
+
+### (1) co2vmr
 
 |Entry type|Possible default values|
 |---       |---         |
@@ -168,7 +179,9 @@ Default: FALSE
 >- [scenario_ghg='FIXED'](#Catogories:-ghg_cam)
 
 **RAMPED_CO2_ONLY**
-##### (2) ramp_co2_annual_rate
+Apply to 1pct increase CO2 experiments.
+
+### (2) ramp_co2_annual_rate
 
 |Entry type|Valid values|
 |---       |---         |
@@ -178,7 +191,7 @@ Default: FALSE
 >- Only used if scenario_ghg = 'RAMP_CO2_ONLY'  
 >- Default: 1.0
 
-##### (3) ramp_co2_cap
+### (3) ramp_co2_cap
 
 |Entry type|Valid values|
 |---       |---         |
@@ -189,7 +202,7 @@ Default: FALSE
 >- Only used if scenario_ghg = 'RAMP_CO2_ONLY'  
 >- Default: boundless if ramp_co2_annual_rate > 0, zero otherwise.
 
-##### (4) ramp_co2_start_ymd
+### (4) ramp_co2_start_ymd
 
 |Entry type|Valid values|
 |---       |---         |
@@ -200,7 +213,9 @@ Default: FALSE
 >- Default: 0
 
 **CHEM_LBC_FILE**
-##### (5) flbc_file
+Apply to prescribed CO2 concentration experiments. CO2 concentration is specified as low boundary forcing.
+
+### (5) flbc_file
 
 |Entry type|Valid values|
 |---       |---         |
@@ -210,7 +225,7 @@ Default: FALSE
 - (e.g.) atm/waccm/lb/LBC_1765-2100_1.9x2.5_CCMI_RCP60_za_RNOCStrend_c141002.nc
 - Default: set by build-namelist.
 
-##### (6) flbc_type
+### (6) flbc_type
 
 |Entry type|Valid values|
 |---       |---         |
@@ -219,7 +234,7 @@ Default: FALSE
 >- Type of time interpolation for fixed lower boundary data.
 >- Default: 'CYCLICAL'
 
-##### (7) flbc_cycle_yr
+### (7) flbc_cycle_yr
 
 |Entry type|Valid values|
 |---       |---         |
@@ -229,7 +244,7 @@ Default: FALSE
 >- Format: YYYY
 >- Default: 0
 
-##### (8) flbc_fixed_ymd
+### (8) flbc_fixed_ymd
 
 |Entry type|Valid values|
 |---       |---         |
@@ -241,7 +256,7 @@ Default: FALSE
 >- Default: 0
 
 **RAMPED**
-##### (9) bndtcghg
+### (9) bndtcghg
 
 |Entry type|Valid values|
 |---       |---         |
@@ -251,7 +266,7 @@ Default: FALSE
 >- Default: set by build-namelist.
 >- (e.g.) atm/cam/ggas/ghg_hist_1765-2005_c091218.nc
 
-##### (10) rampyear_ghg
+### (10) rampyear_ghg
 
 |Entry type|Valid values|
 |---       |---         |
