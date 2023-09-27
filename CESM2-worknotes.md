@@ -145,7 +145,7 @@ Default: FALSE
 >- **CHEM_LBC_FILE**: volumn mixing ratios are set from the chemistry lower boundary conditions dataset specified by [flbc_file](#flbc_file)
 >- Default: set by build-namelist
 
-**FIXED**
+## FIXED
 When atmosphere CO2 concentration is a fixed value:
 
 ### (1) co2vmr
@@ -158,7 +158,7 @@ When atmosphere CO2 concentration is a fixed value:
 >- Default: set by build-namelist
 >- [scenario_ghg='FIXED'](#Catogories:-ghg_cam)
 
-**RAMPED_CO2_ONLY**
+## RAMPED_CO2_ONLY
 Apply to 1pct increase CO2 experiments.
 
 ### (2) ramp_co2_annual_rate
@@ -192,7 +192,7 @@ Apply to 1pct increase CO2 experiments.
 >- Only used if scenario_ghg = 'RAMP_CO2_ONLY'
 >- Default: 0
 
-**CHEM_LBC_FILE**
+## CHEM_LBC_FILE
 Apply to prescribed CO2 concentration experiments. CO2 concentration is specified as low boundary forcing.
 
 ### (5) flbc_file
@@ -235,7 +235,7 @@ Apply to prescribed CO2 concentration experiments. CO2 concentration is specifie
 >- Format: YYYYMMDD
 >- Default: 0
 
-**RAMPED**
+## RAMPED
 ### (9) bndtcghg
 
 |Entry type|Valid values|
