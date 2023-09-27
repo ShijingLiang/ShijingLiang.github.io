@@ -72,6 +72,7 @@ Variables under the catogory CO2_cycle, related to whether surface emissions of 
 |Entry type|Valid values|
 |---       |---         |
 |logical   |.true. <br>.false.</br>|
+
 >- If TRUE turn on CO2 code.
 >- Default: set by build-namelist
 
