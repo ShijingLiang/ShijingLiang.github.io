@@ -5,10 +5,11 @@ permalink: /CESM2-tutorial/
 
 -----------------
 
-CESM2 Tutorial
-==========
+# CESM2 Tutorial
 
-# Step 1. Connect to Taiyi Supercomputer
+Step 1. Connect to Taiyi Supercomputer
+=======
+
 ## Process 1. Download [MobaXterm](https://mobaxterm.mobatek.net/download.html) for Windows
 Download link: https://mobaxterm.mobatek.net/download.html
 
@@ -45,7 +46,9 @@ Download link: https://mobaxterm.mobatek.net/download.html
 For more information on Taiyi, please refer to [hpc.sustech.edu.cn](https://hpc.sustech.edu.cn/process/user_guide.html)  
 LINK: https://hpc.sustech.edu.cn/process/user_guide.html
 
-# Step 2. Let's run CESM2
+Step 2. Let's run CESM2
+=======
+
 ## Porcess 1. Create a case
 
 >\[ese-liangll@login02 ~]$>cd /work/ese-liangll/CESM2.1.3/my_cesm_sandbox/cime/scripts/
