@@ -1,6 +1,9 @@
+Website page:  
 layout: page
 title: "CESM2-worknotes"
 permalink: /CESM2-worknotes/
+
+------------
 
 # CESM work notes: How to change CO2 in CESM2?
 
@@ -13,7 +16,9 @@ permalink: /CESM2-worknotes/
 ## Projectives:
 - Understand basic variables specified in *env_run.xml* and *user_nl_cam*.
 - Learned how to change the way CO2 evolves and prescribed CO2 concentration in the model.
+
 ----------------------------------------------
+
 # **Variables in env_run.xml:** settings of how CO2 will change in the model and each components
 <table><tr><td bgcolor=gold>Note: <font color="red">DO NOT</font> change these variables in env_xml.</td></tr></table>
 Variables in env_run.xml depend on the compset settings and changing them will directly alter the case build process.
