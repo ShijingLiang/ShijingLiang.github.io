@@ -5,6 +5,7 @@ permalink: /CESM2-worknotes/
 
 ------------
 
+
 # CESM work notes: How to change CO2 in CESM2?
 
 [//]:# (B1850 case)
