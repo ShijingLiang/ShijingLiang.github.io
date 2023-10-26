@@ -3,11 +3,15 @@ layout: page
 title: "CESM2-worknotes"
 permalink: /CESM2-tutorial/
 
------------------
+------
 
-# CESM2 Tutorial
+# CESM2 Tutorial  
+- Start running a case in CESM2
+- Case study: modifying sea surface temperature (SST) in a land-atmospheric coupled case
 
 # Step 1. Connect to Taiyi Supercomputer
+
+------
 
 Process 1. Download [MobaXterm](https://mobaxterm.mobatek.net/download.html) for Windows
 ====
@@ -17,6 +21,7 @@ Download link: https://mobaxterm.mobatek.net/download.html
 
 Process 2. Open MobaXterm and start a new session
 ====
+
 > "User sessions" (right click) -> "New session"
 
 ![pic2](./pics/tutorial_2.png)
@@ -60,19 +65,27 @@ Porcess 1. Create a case
 Process 2. Set up a case
 ====
 
+------
+
 >\[ese-liangll@login02 scripts]$ cd /data/ese-liangll/CESM2.1.3/cases/newtest_TA/
 
 >\[ese-liangll@login02 newtest_TA]$ ./xmlchange STOP_OPTION=nmonths,STOP_N=4
 
 >\[ese-liangll@login02 newtest_TA]$ ./case.setup
 
-## Process 3. Build a case
+Process 3. Build a case
+====
+
+------
+
 >\[ese-liangll@login02 newtest_TA]$ ./case.build
 
 ![pic11](./pics/tutorial_11.png)
 
 Process 4. Run a case
 ====
+
+------
 
 Note: make sure to read [taiyi user manual]( https://hpc.sustech.edu.cn/ref/taiyi_User_Manual_v0.6.pdf) and attend training as a beginner.  
 Manual:  https://hpc.sustech.edu.cn/ref/taiyi_User_Manual_v0.6.pdf
@@ -98,13 +111,15 @@ Note: Check the queue using bqueues
 
 ![pic8](./pics/tutorial_8.png)
 
-
 Note: Check the queue using bqueues
 >\[ese-liangll@login02 newtest_TA]$ bjobs
 
 ![pic9](./pics/tutorial_9.png)
 
 # Additional information
+
+------
+
 CESM model structure on Taiyi
 
 ![pic10](./pics/tutorial_10.png)
