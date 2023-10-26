@@ -53,6 +53,8 @@ LINK: https://hpc.sustech.edu.cn/process/user_guide.html
 
 # Step 2. Let's run CESM2
 
+------
+
 Porcess 1. Create a case
 ====
 
@@ -65,8 +67,6 @@ Porcess 1. Create a case
 Process 2. Set up a case
 ====
 
-------
-
 >\[ese-liangll@login02 scripts]$ cd /data/ese-liangll/CESM2.1.3/cases/newtest_TA/
 
 >\[ese-liangll@login02 newtest_TA]$ ./xmlchange STOP_OPTION=nmonths,STOP_N=4
@@ -76,16 +76,12 @@ Process 2. Set up a case
 Process 3. Build a case
 ====
 
-------
-
 >\[ese-liangll@login02 newtest_TA]$ ./case.build
 
 ![pic11](./pics/tutorial_11.png)
 
 Process 4. Run a case
 ====
-
-------
 
 Note: make sure to read [taiyi user manual]( https://hpc.sustech.edu.cn/ref/taiyi_User_Manual_v0.6.pdf) and attend training as a beginner.  
 Manual:  https://hpc.sustech.edu.cn/ref/taiyi_User_Manual_v0.6.pdf
