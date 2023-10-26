@@ -60,16 +60,24 @@ Porcess 1. Create a case
 
 >[ese-liangll@login02 ~]$ cd /work/ese-liangll/CESM2.1.3/my_cesm_sandbox/cime/scripts/
 
->[ese-liangll@login02 scripts]$ ./create_newcase --case /data/ese-liangll/CESM2.1.3/cases/<font color="red">newtest_TA</font> --compset FHIST --res f09_g17 --mach sustechliangll
+>[ese-liangll@login02 scripts]$ ./create_newcase --case /data/<font color="red">ese-liangll</font>/CESM2.1.3/cases/<font color="red">newtest_TA</font> --compset FHIST_BGC --res f09_f09_mg17 --mach sustechliangsj
 
 <font color="red">Note: you need to rename your folder such as “newtest_xxx” (do not have any blank space in your folder name)</font>
 
 Process 2. Set up a case
 ====
 
->[ese-liangll@login02 scripts]$ cd /data/ese-liangll/CESM2.1.3/cases/newtest_TA/
+>[ese-liangll@login02 scripts]$ cd /data/<font color="red">ese-liangll</font>/CESM2.1.3/cases/newtest_TA/
 
->[ese-liangll@login02 newtest_TA]$ ./xmlchange STOP_OPTION=nmonths,STOP_N=4
+Change run options: do monthly run for 12 months
+
+>[ese-liangll@login02 newtest_TA]$ ./xmlchange STOP_OPTION=nmonths,STOP_N=12
+
+Check the running requirements
+
+>[ese-liangll@login02 newtest_TA]$ ./preview_run
+
+![pic12](./pics/tutorial_12.png)
 
 >[ese-liangll@login02 newtest_TA]$ ./case.setup
 
