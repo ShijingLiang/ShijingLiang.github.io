@@ -7,16 +7,16 @@ permalink: /CESM2-tutorial/
 
 # CESM2 Tutorial
 
-Step 1. Connect to Taiyi Supercomputer
-=======
+# Step 1. Connect to Taiyi Supercomputer
 
-## Process 1. Download [MobaXterm](https://mobaxterm.mobatek.net/download.html) for Windows
+Process 1. Download [MobaXterm](https://mobaxterm.mobatek.net/download.html) for Windows
+====
 Download link: https://mobaxterm.mobatek.net/download.html
 
 ![pic1](./pics/tutorial_1.png)
 
-## Process 2. Open MobaXterm and start a new session
-
+Process 2. Open MobaXterm and start a new session
+====
 > "User sessions" (right click) -> "New session"
 
 ![pic2](./pics/tutorial_2.png)
@@ -46,10 +46,10 @@ Download link: https://mobaxterm.mobatek.net/download.html
 For more information on Taiyi, please refer to [hpc.sustech.edu.cn](https://hpc.sustech.edu.cn/process/user_guide.html)  
 LINK: https://hpc.sustech.edu.cn/process/user_guide.html
 
-Step 2. Let's run CESM2
-=======
+# Step 2. Let's run CESM2
 
-## Porcess 1. Create a case
+Porcess 1. Create a case
+====
 
 >\[ese-liangll@login02 ~]$>cd /work/ese-liangll/CESM2.1.3/my_cesm_sandbox/cime/scripts/
 
@@ -57,7 +57,9 @@ Step 2. Let's run CESM2
 
 <font color="red">Note: you need to rename your folder such as “newtest_xxx” (do not have any blank space in your folder name)</font>
 
-## Process 2. Set up a case
+Process 2. Set up a case
+====
+
 >\[ese-liangll@login02 scripts]$ cd /data/ese-liangll/CESM2.1.3/cases/newtest_TA/
 
 >\[ese-liangll@login02 newtest_TA]$ ./xmlchange STOP_OPTION=nmonths,STOP_N=4
@@ -69,7 +71,9 @@ Step 2. Let's run CESM2
 
 ![pic11](./pics/tutorial_11.png)
 
-## Process 4. Run a case
+Process 4. Run a case
+====
+
 Note: make sure to read [taiyi user manual]( https://hpc.sustech.edu.cn/ref/taiyi_User_Manual_v0.6.pdf) and attend training as a beginner.  
 Manual:  https://hpc.sustech.edu.cn/ref/taiyi_User_Manual_v0.6.pdf
 
