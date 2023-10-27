@@ -10,6 +10,7 @@ Background:
 Global sea surface temperature (SST) is warming for the past decades. Notably, SST in year 2023 is going to be the hottest that has never been seen in the historical data (see following figure). Since this year, we witnessed several extreme events, one of those worthnoting events would be the storm *"Daniel"*, a Mediterranean tropical-like cyclone on record, leading to over 11,000 deaths in Libya [1](https://news.sky.com/story/libya-floods-number-of-deaths-in-derna-could-reach-20-000-mayor-says-12960801).
 
 ![pic2](./pics/tutorial2_2.png)
+Source: [https://climatereanalyzer.org/clim/sst_daily/](https://climatereanalyzer.org/clim/sst_daily/)
 
 Questions:
 ----
