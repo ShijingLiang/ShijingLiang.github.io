@@ -1,10 +1,3 @@
-Website page:  
-layout: page
-title: "CESM2-worknotes"
-permalink: /CESM2-tutorial/
-
-------
-
 # CESM2 Tutorial  
 - Start running a case in CESM2
 - Case study: modifying sea surface temperature (SST) in a land-atmospheric coupled case
