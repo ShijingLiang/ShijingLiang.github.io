@@ -1,10 +1,3 @@
-Website page:  
-layout: page
-title: "CESM2-worknotes"
-permalink: /CESM2-tutorial-SST2023/
-
-------
-
 # CESM2 Tutorial  
 - Learning the FHIST_BGC case in CESM2
 - Case study: modifying sea surface temperature (SST) in the FHIST_BGC case
