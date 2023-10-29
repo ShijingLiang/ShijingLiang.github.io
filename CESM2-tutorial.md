@@ -96,7 +96,7 @@ Do preview run to check the requirement to run the case.
 
 Type the following statements. Note: you may need to change the case name with your own.
 
-- bsub -J <font color="red">newtest_TA</font> -q short -n 140 -R "span\[ptile=40]" -W 12:00 -o stdout_%J.out -e stderr_%J.err ./case.submit
+- bsub -J <font color="red">newtest_TA</font> -q short -n 160 -R "span\[ptile=40]" -W 12:00 -o stdout_%J.out -e stderr_%J.err ./case.submit
 
 - \[ese-liangll@login02 newtest_TA]$ chmod 740 run_newtest_TA.sh
 - [ese-liangll@login02 newtest_TA]$ ./run_newtest_TA.sh
