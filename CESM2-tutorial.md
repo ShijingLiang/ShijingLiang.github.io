@@ -53,7 +53,7 @@ Porcess 1. Create a case
 
 >\[ese-liangll@login02 ~]$ cd /work/ese-liangll/CESM2.1.3/my_cesm_sandbox/cime/scripts/
 
->\[ese-liangll@login02 scripts]$ ./create_newcase --case /data/<font color="red">ese-liangll</font>/CESM2.1.3/cases/<font color="red">newtest_TA</font> --compset FHIST_BGC --res f09_f09_mg17 --mach sustechliangsj
+>\[ese-liangll@login02 scripts]$ ./create_newcase --case /data/<font color="red">ese-liangll</font>/CESM2.1.3/cases/<font color="red">newtest_TA</font> --compset FHIST_BGC --res f09_f09_mg17 --mach sustechliangll
 
 <font color="red">Note: you need to rename your folder such as “newtest_xxx” (do not have any blank space in your folder name)</font>
 
