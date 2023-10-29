@@ -60,24 +60,24 @@ Porcess 1. Create a case
 Process 2. Set up a case
 ====
 
->\[ese-liangll@login02 scripts]$ cd /data/<font color="red">ese-liangll</font>/CESM2.1.3/cases/newtest_TA/
+- \[ese-liangll@login02 scripts]$ cd /data/<font color="red">ese-liangll</font>/CESM2.1.3/cases/newtest_TA/
 
 Change run options: do monthly run for 12 months
 
->\[ese-liangll@login02 newtest_TA]$ ./xmlchange STOP_OPTION=nmonths,STOP_N=12
+- \[ese-liangll@login02 newtest_TA]$ ./xmlchange STOP_OPTION=nmonths,STOP_N=12
 
 Check the running requirements
 
->\[ese-liangll@login02 newtest_TA]$ ./preview_run
+- \[ese-liangll@login02 newtest_TA]$ ./preview_run
 
 ![pic12](./pics/tutorial_12.png)
 
->\[ese-liangll@login02 newtest_TA]$ ./case.setup
+- \[ese-liangll@login02 newtest_TA]$ ./case.setup
 
 Process 3. Build a case
 ====
 
->\[ese-liangll@login02 newtest_TA]$ ./case.build
+- \[ese-liangll@login02 newtest_TA]$ ./case.build
 
 ![pic11](./pics/tutorial_11.png)
 
@@ -88,28 +88,28 @@ Note: make sure to read [taiyi user manual]( https://hpc.sustech.edu.cn/ref/taiy
 Manual:  https://hpc.sustech.edu.cn/ref/taiyi_User_Manual_v0.6.pdf
 
 Do preview run to check the requirement to run the case.
->\[ese-liangll@login02 newtest_TA]$ ./preview_run
+- \[ese-liangll@login02 newtest_TA]$ ./preview_run
 
 ![pic7](./pics/tutorial_7.png)
 
->\[ese-liangll@login02 newtest_TA]$ vi run_newtest_TA.sh
+- \[ese-liangll@login02 newtest_TA]$ vi run_newtest_TA.sh
 
 Type the following statements. Note: you may need to change the case name with your own.
 
->bsub -J <font color="red">newtest_TA</font> -q short -n 140 -R "span\[ptile=40]" -W 12:00 -o stdout_%J.out -e stderr_%J.err ./case.submit
+- bsub -J <font color="red">newtest_TA</font> -q short -n 140 -R "span\[ptile=40]" -W 12:00 -o stdout_%J.out -e stderr_%J.err ./case.submit
 
->\[ese-liangll@login02 newtest_TA]$ chmod 740 run_newtest_TA.sh
->[ese-liangll@login02 newtest_TA]$ ./run_newtest_TA.sh
+- \[ese-liangll@login02 newtest_TA]$ chmod 740 run_newtest_TA.sh
+- [ese-liangll@login02 newtest_TA]$ ./run_newtest_TA.sh
 
 **Now you have submit the job and CESM2 should be running after waiting in the queue.**
 
 Note: Check the queue using bqueues
->[ese-liangll@login02 newtest_TA]$ bqueues
+- [ese-liangll@login02 newtest_TA]$ bqueues
 
 ![pic8](./pics/tutorial_8.png)
 
 Note: Check the queue using bqueues
->[ese-liangll@login02 newtest_TA]$ bjobs
+- [ese-liangll@login02 newtest_TA]$ bjobs
 
 ![pic9](./pics/tutorial_9.png)
 
