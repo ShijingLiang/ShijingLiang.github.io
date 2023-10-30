@@ -51,36 +51,29 @@ LINK: https://hpc.sustech.edu.cn/process/user_guide.html
 Porcess 1. Create a case
 ====
 
->\[ese-liangll@login02 ~]$ cd /work/ese-liangll/CESM2.1.3/my_cesm_sandbox/cime/scripts/
 
->\[ese-liangll@login02 scripts]$ ./create_newcase --case /data/<font color="red">ese-liangll</font>/CESM2.1.3/cases/<font color="red">newtest_TA</font> --compset FHIST_BGC --res f09_f09_mg17 --mach sustechliangsj
 
 <font color="red">Note: you need to rename your folder such as “newtest_xxx” (do not have any blank space in your folder name)</font>
 
 Process 2. Set up a case
 ====
 
->\[ese-liangll@login02 scripts]$ cd /data/<font color="red">ese-liangll</font>/CESM2.1.3/cases/newtest_TA/
 
 Change run options: do monthly run for 12 months
 
->\[ese-liangll@login02 newtest_TA]$ ./xmlchange STOP_OPTION=nmonths,STOP_N=12
 
 Change computation requirement: total tasks = 240 cores
 >\[ese-liangll@login02 newtest_TA]$ ./xmlchange NTASKS=240
 
 Check the running requirements
 
->\[ese-liangll@login02 newtest_TA]$ ./preview_run
 
 ![pic12](./pics/tutorial_12.png)
 
->\[ese-liangll@login02 newtest_TA]$ ./case.setup
 
 Process 3. Build a case
 ====
 
->\[ese-liangll@login02 newtest_TA]$ ./case.build
 
 ![pic11](./pics/tutorial_11.png)
 
@@ -91,28 +84,24 @@ Note: make sure to read [taiyi user manual]( https://hpc.sustech.edu.cn/ref/taiy
 Manual:  https://hpc.sustech.edu.cn/ref/taiyi_User_Manual_v0.6.pdf
 
 Do preview run to check the requirement to run the case.
->\[ese-liangll@login02 newtest_TA]$ ./preview_run
 
 ![pic7](./pics/tutorial_7.png)
 
->\[ese-liangll@login02 newtest_TA]$ vi run_newtest_TA.sh
 
 Type the following statements. Note: you may need to change the case name with your own.
 
+<<<<<<< HEAD
 >bsub -J <font color="red">newtest_TA</font> -q medium -n 240 -R "span\[ptile=40]" -W 12:00 -o stdout_%J.out -e stderr_%J.err ./case.submit
+=======
 
->\[ese-liangll@login02 newtest_TA]$ chmod 740 run_newtest_TA.sh
->[ese-liangll@login02 newtest_TA]$ ./run_newtest_TA.sh
 
 **Now you have submit the job and CESM2 should be running after waiting in the queue.**
 
 Note: Check the queue using bqueues
->[ese-liangll@login02 newtest_TA]$ bqueues
 
 ![pic8](./pics/tutorial_8.png)
 
 Note: Check the queue using bqueues
->[ese-liangll@login02 newtest_TA]$ bjobs
 
 ![pic9](./pics/tutorial_9.png)
 
