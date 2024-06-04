@@ -47,34 +47,35 @@ The data must be formatted above to be put into the bcgen tool
 
 
 ## Use bcgen tool to do the "diddling" approach
-0. Open and read README!!!
+0. Open and read README!!!  
 Read README at /work/ese-liangll/CESM2.1.3/my_cesm_sandbox/components/cam/tools/icesst/
-1. Check environment settings
+
+1. Check environment settings  
 You will need to check Fortran compiler in your .bashrc, by typing vi ~/.bashrc
 \[ese-liangll@login02 ~]$ vi ~/.bashrc 
 > export F90=ifort
 
-1.1 Go to bcgen tool directory:
+1.1 Go to bcgen tool directory:  
 >/work/ese-liangll/CESM2.1.3/my_cesm_sandbox/components/cam/tools/icesst/bcgen/
 
-1.2 Open Makefile in the bcgen tool directory 
+1.2 Open Makefile in the bcgen tool directory  
 >\[ese-liangll@login02 bcgen]$ vi Makefile
 
 1.3 Set LIB_NETCDF and INC_NETCDF path  
-![pic2](./pics/tutorial3_2.png)
+![pic2](./pics/tutorial3_2_1.png)
 
-1.4 Set other flags
+1.4 Set other flags  
 Here I simply set FC=ifort  
-![pic21](./pics/tutorial3_21.png)
+![pic3](./pics/tutorial3_2.png)
 
-2. Compile the bcgen tool
+2. Compile the bcgen tool  
 >\[ese-liangll@login02 bcgen]$ make
 
 If you are lucky and make it successfully, you may notice there is a "\*.o" file for each "\*.f90" file.
-Most importantly, you obtain the "bcgen" excutable file.
-![pic3](./pics/tutorial3_3.png)
+Most importantly, you obtain the "bcgen" excutable file.  
+![pic4](./pics/tutorial3_3.png)
 
-3. Revise the namelist
+3. Revise the namelist  
 \[ese-liangll@login02 bcgen]$ vi namelist
 
 > &cntlvars
