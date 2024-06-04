@@ -4,7 +4,7 @@ How to use icesst tool to construct AMIP6-like forcings (sea surface temperature
 
 ## Prepare data
 I first interpolated satellite-observed data to CESM2 output resolution with python. It is important to keep the file formatted and add the attributes for each variable.  
-![[tutorial3_1.png]]
+![pic1](./pics/tutorial3_1.png)
 
 
 **time** should be cftime.DatetimeNoleap
@@ -61,17 +61,18 @@ You will need to check Fortran compiler in your .bashrc, by typing vi ~/.bashrc
 >\[ese-liangll@login02 bcgen]$ vi Makefile
 
 1.3 Set LIB_NETCDF and INC_NETCDF path  
-![[tutorial3_2.png]]
+![pic2](./pics/tutorial3_2.png)
 
 1.4 Set other flags
 Here I simply set FC=ifort  
-![[tutorial3_21.png]]
+![pic21](./pics/tutorial3_21.png)
 
 2. Compile the bcgen tool
 >\[ese-liangll@login02 bcgen]$ make
 
 If you are lucky and make it successfully, you may notice there is a "\*.o" file for each "\*.f90" file.
 Most importantly, you obtain the "bcgen" excutable file.
+![pic3](./pics/tutorial3_3.png)
 
 3. Revise the namelist
 \[ese-liangll@login02 bcgen]$ vi namelist
