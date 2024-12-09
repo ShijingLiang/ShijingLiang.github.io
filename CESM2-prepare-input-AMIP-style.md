@@ -13,7 +13,8 @@ Notifications
 The information above can be found in [FAQ: Data ocean slab mode (DOCN-SOM) | Page 4 | DiscussCESM Forums (ucar.edu)](https://bb.cgd.ucar.edu/cesm/threads/faq-data-ocean-slab-mode-docn-som.2017/page-4)
 
 ## Prepare data
-![[tutorial4_4.png]]
+![[tutorial4_4.png]](./pics/tutorial4_4.png)  
+
 ## File format
 I first interpolated satellite-observed data to CESM2 output resolution with python. It is important to keep the file formatted and add the attributes for each variable.
 
@@ -39,20 +40,22 @@ Other months, date is 19800115
 ## Fill values on land using ncl
 The SST and SIC are interpolated over land. It is necssaey for the model to have values over land otherwise, it will crash but the values over land don't impact the simulation. Because I am not familiar with ncl, you could also format your output data here. The data must be formatted before starting the bcgen tool.
 
+You may create the ncl file by typing the following statements:
 
->filename = "/mnt/e/CESM-SST/sstice_obs.nc"
->out_file = "/mnt/e/CESM-SST/sstice_obs_fillnan.nc"
->fin = addfile(filename,"r")
->SST = fin->SST
->SEAICE = fin->SEAICE
+>filename = "/mnt/e/CESM-SST/sstice_obs.nc"  
+>out_file = "/mnt/e/CESM-SST/sstice_obs_fillnan.nc"  
+>fin = addfile(filename,"r")  
+>SST = fin->SST  
+>SEAICE = fin->SEAICE  
 >
->poisson_grid_fill(SST, True, 1, 500, 0.01, 0.6, 0)
->poisson_grid_fill(SEAICE, True, 1, 500, 0.01, 0.6, 0)
+>poisson_grid_fill(SST, True, 1, 500, 0.01, 0.6, 0)  
+>poisson_grid_fill(SEAICE, True, 1, 500, 0.01, 0.6, 0)  
 >
->fout = addfile(out_file,"c")
->fout->SST = (/SST/)
->fout->SEAICE = (/SEAICE/)
+>fout = addfile(out_file,"c")  
+>fout->SST = (/SST/)  
+>fout->SEAICE = (/SEAICE/)  
 >fout->ICEFRAC = (/SEAICE/100./)
+
 
 ## Use bcgen tool to do the "diddling" approach
 
@@ -66,18 +69,19 @@ The SST and SIC are interpolated over land. It is necssaey for the model to have
 >	\[ese-liangll@login02 ~]$ cd /work/ese-liangll/CESM2.1.3/my_cesm_sandbox/components/cam/tools/icesst/bcgen/
 >	\[ese-liangll@login02 bcgen]$ vi Makefile
 
-Set LIB_NETCDF and INC_NETCDF path 
-![[tutorial4_1.png]]
-Set other flags
-Here I simply set FC=ifort
-![[tutorial4_2.png]]
+Set LIB_NETCDF and INC_NETCDF path  
+![[tutorial4_1.png]](./pics/tutorial4_1.png)  
+
+Set other flags  
+Here I simply set FC=ifort  
+![[tutorial4_2.png]](./pics/tutorial4_2.png)
 
 4. After modifying the Makefile, compile the bcgen tool
 	>\[ese-liangll@login02 bcgen]$ make
 
 If you are lucky and make it successfully, you may notice there is a "\*.o" file for each "\*.f90" file
-Most importantly, you obtain the "bcgen" excutable file
-![[tutorial4_3.png]]
+Most importantly, you obtain the "bcgen" excutable file  
+![[tutorial4_3.png]](./pics/tutorial4_3.png)
 
 5. Revise the namelist
 >	\[ese-liangll@login02 bcgen]$ vi namelist
