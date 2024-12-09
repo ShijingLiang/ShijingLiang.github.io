@@ -66,7 +66,7 @@ You may create the ncl file by typing the following statements:
 	> \[ese-liangll@login02 ~]$ vi ~/.bashrc  
 	> export F90=ifort
 4. Go to bcgen tool directory 
->	\[ese-liangll@login02 ~]$ cd /work/ese-liangll/CESM2.1.3/my_cesm_sandbox/components/cam/tools/icesst/bcgen/
+>	\[ese-liangll@login02 ~]$ cd /work/ese-liangll/CESM2.1.3/my_cesm_sandbox/components/cam/tools/icesst/bcgen/  
 >	\[ese-liangll@login02 bcgen]$ vi Makefile
 
 Set LIB_NETCDF and INC_NETCDF path  
