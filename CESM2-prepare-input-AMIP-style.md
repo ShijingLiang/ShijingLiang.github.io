@@ -12,14 +12,11 @@ Notifications
 
 The information above can be found in [FAQ: Data ocean slab mode (DOCN-SOM) | Page 4 | DiscussCESM Forums (ucar.edu)](https://bb.cgd.ucar.edu/cesm/threads/faq-data-ocean-slab-mode-docn-som.2017/page-4)
 
-How to use icesst tool to construct AMIP6-like forcings
-----
 ## Prepare data
 ![[tutorial4_4.png]]
 ## File format
 I first interpolated satellite-observed data to CESM2 output resolution with python. It is important to keep the file formatted and add the attributes for each variable.
 
------------
 
 **time** (cftime.DatetimeNoleap)
 - For Feburary time should be 
@@ -42,7 +39,6 @@ Other months, date is 19800115
 ## Fill values on land using ncl
 The SST and SIC are interpolated over land. It is necssaey for the model to have values over land otherwise, it will crash but the values over land don't impact the simulation. Because I am not familiar with ncl, you could also format your output data here. The data must be formatted before starting the bcgen tool.
 
----------------------------------------------
 
 >filename = "/mnt/e/CESM-SST/sstice_obs.nc"
 >out_file = "/mnt/e/CESM-SST/sstice_obs_fillnan.nc"
@@ -87,22 +83,22 @@ Most importantly, you obtain the "bcgen" excutable file
 >	\[ese-liangll@login02 bcgen]$ vi namelist
 >
 > &cntlvars
- mon1 = 1
- iyr1 = 1980
- monn = 12
- iyrn = 2024
- mon1rd = 12
- iyr1rd = 1980
- monnrd = 2
- iyrnrd = 2024
- mon1clm = 1
- iyr1clm = 1982
- monnclm = 12
- iyrnclm = 2001
- mon1out = 1
- iyr1out = 2014
- monnout = 12
- iyrnout = 2023
+ mon1 = 1  
+ iyr1 = 1980  
+ monn = 12  
+ iyrn = 2024  
+ mon1rd = 12  
+ iyr1rd = 1980  
+ monnrd = 2  
+ iyrnrd = 2024  
+ mon1clm = 1  
+ iyr1clm = 1982  
+ monnclm = 12  
+ iyrnclm = 2001  
+ mon1out = 1  
+ iyr1out = 2014  
+ monnout = 12  
+ iyrnout = 2023  
  /
  
 6. Run the bcgen tool
