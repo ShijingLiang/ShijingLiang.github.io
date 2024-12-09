@@ -62,10 +62,10 @@ You may create the ncl file by typing the following statements:
 1. Open and read README!!!
 	Read README at /work/ese-liangll/CESM2.1.3/my_cesm_sandbox/components/cam/tools/icesst/
 2. Check environment settings
-	You will need to check Fortran compiler in your .bashrc, by typing vi ~/.bashrc
-	\[ese-liangll@login02 ~]$ vi ~/.bashrc 
+	You will need to check Fortran compiler in your .bashrc, by typing
+	> \[ese-liangll@login02 ~]$ vi ~/.bashrc  
 	> export F90=ifort
-3. Go to bcgen tool directory 
+4. Go to bcgen tool directory 
 >	\[ese-liangll@login02 ~]$ cd /work/ese-liangll/CESM2.1.3/my_cesm_sandbox/components/cam/tools/icesst/bcgen/
 >	\[ese-liangll@login02 bcgen]$ vi Makefile
 
